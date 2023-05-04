@@ -4,7 +4,7 @@ const oldTdhAddy = "0x1c2bB5d2812D307C2056C6A406d334676D067EE9";
 
 document.getElementById('connectwallet').onclick = async () => {
   if(window.ethereum){
-    await window.ethereum.send('eth_requestAccounts');
+    await window.ethereum.request({ method: "eth_requestAccounts"});
     window.web3 = new Web3(window.ethereum);
     var accounts = await web3.eth.getAccounts();
     tdhUsers = accounts[0];
