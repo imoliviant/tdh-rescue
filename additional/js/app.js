@@ -20,7 +20,7 @@ document.getElementById('connectwallet').onclick = async () => {
         });
     var vestamt = migrator.methods.mirgationBalance(tdhUsers).call({ from: tdhUsers })
         .then(function(result){
-          document.getElementById('vesting-amount').textContent = result;
+          document.getElementById('vesting-amount').textContent = result / 1000000000000000000;
         });
     
     const currentEpoch = Math.round(Date.now() / 1000)
