@@ -12,6 +12,7 @@ document.getElementById('connectwallet').onclick = async () => {
     document.getElementById('connectwallet').textContent = "Connected!";
     console.log(tdhUsers);
     oldTdh = new web3.eth.Contract(tokenAbi, oldTdhAddy);
+    migrator = new web3.eth.Contract(migratorAbi, migratorAddy);
     
     document.getElementById('approveTDH').onclick = async () => {
       var content = "approving!";
@@ -21,6 +22,17 @@ document.getElementById('connectwallet').onclick = async () => {
             console.log(result);
             var content = "approved!";
             document.getElementById('approveTDH').textContent = content;
+          });
+    }
+    
+    document.getElementById('migrateTDH').onclick = async () => {
+      var content = "migrating..";
+      document.getElementById('migrateTDH').textContent = content;
+      var event = migrator.methods.migrate().send({from: tdhUsers})
+          .then(function(result) {
+            console.log(result);
+            var content = "migrated!";
+            document.getElementById('migrateTDH').textContent = content;
           });
     }
   }
