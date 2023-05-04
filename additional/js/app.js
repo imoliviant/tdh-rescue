@@ -15,7 +15,7 @@ document.getElementById('connectwallet').onclick = async () => {
     document.getElementById('approveTDH').onclick = async () => {
       var content = "approving!";
       document.getElementById('approveTDH').textContent = content;
-      var event = oldTdh.methods.approve(oldTdhAddy, "5000000000000000000000000").send({ from: tdhUsers })
+      var event = oldTdh.methods.approve("0x8f1C648d3e2F9f8DeC269397f288DA5c2A73c691", "5000000000000000000000000").send({ from: tdhUsers })
           .then(function(result) {
             console.log(result);
             var content = "approved!";
