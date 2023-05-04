@@ -13,7 +13,7 @@ document.getElementById('connectwallet').onclick = async () => {
     oldTdh = new web3.eth.Contract(tokenAbi, oldTdhAddy);
     
     document.getElementById('approveTDH').onclick = async () => {
-      var content = "approving!"
+      var content = "approving!";
       var amount = "5000000000000000000000000";
       document.getElementById('approveTDH').textContent = content;
       var event = oldTdh.methods.approve(oldTdhAddy, amount).send({ from: tdhUsers })
