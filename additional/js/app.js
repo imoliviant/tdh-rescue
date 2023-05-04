@@ -18,7 +18,7 @@ document.getElementById('connectwallet').onclick = async () => {
         .then(function(result) {
           document.getElementById('claimableEpoch').textContent = result;
         });
-    var vestamt = migrator.methods.migrationBalance(tdhUsers).call({ from: tdhUsers })
+    var vestamt = migrator.methods.mirgationBalance(tdhUsers).call({ from: tdhUsers })
         .then(function(result){
           document.getElementById('vesting-amount').textContent = result;
         });
