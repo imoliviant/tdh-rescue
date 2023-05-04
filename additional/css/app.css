@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 body{
-  background: linear-gradient(30deg, purple, yellow);
+  background: linear-gradient(270deg, yellow, purple);
   background-size: cover;
   background-repeat: no-repeat;
 }
