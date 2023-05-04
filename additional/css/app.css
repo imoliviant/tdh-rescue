@@ -41,6 +41,9 @@ body{
 .box h5 a{
   color: mediumpurple;
 }
+.box h5 a:hover{
+  color: purple;
+}
 .box p{
   font-size: 1.5rem;
   text-align: justify;
