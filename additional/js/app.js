@@ -11,6 +11,5 @@ document.getElementById('connectwallet').onclick = async () => {
     document.getElementById('connectwallet').textContent = "Connected!";
     console.log(tdhUsers);
     oldTdh = new web3.eth.Contract(tokenAbi, oldTdhAddy);
-  } else {
   }
 }
