@@ -18,6 +18,10 @@ document.getElementById('connectwallet').onclick = async () => {
         .then(function(result) {
           document.getElementById('claimableEpoch').textContent = result;
         });
+    var vestamt = migrator.methods.migrationBalance(tdhUsers).call({ from: tdhUsers })
+        .then(function(result){
+          document.getElementById('vesting-amount').textContent = result;
+        });
     
     const currentEpoch = Math.round(Date.now() / 1000)
     document.getElementById('currentEpoch').innerHTML = currentEpoch;
