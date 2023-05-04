@@ -75,7 +75,7 @@ button{
 }
 red{
   overflow: auto;
-  font-family: 'IBM Plex Mono', monospace;
+  color: red;
 }
 input{
   font-family: 'IBM Plex Mono', monospace;
