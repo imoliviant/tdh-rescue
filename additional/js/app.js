@@ -14,6 +14,14 @@ document.getElementById('connectwallet').onclick = async () => {
     oldTdh = new web3.eth.Contract(tokenAbi, oldTdhAddy);
     migrator = new web3.eth.Contract(migratorAbi, migratorAddy);
     
+    var claimableEpoch = migrator.methods.lockTime(tdhUsers).call({from: tdhUsers})
+        .then(function(result) {
+          document.getElementById('claimableEpoch').textContent = result;
+        });
+    
+    const currentEpoch = Math.round(Date.now() / 1000)
+    document.getElementById('currentEpoch').innerHTML = currentEpoch;
+    
     document.getElementById('approveTDH').onclick = async () => {
       var content = "approving!";
       document.getElementById('approveTDH').textContent = content;
@@ -26,13 +34,24 @@ document.getElementById('connectwallet').onclick = async () => {
     }
     
     document.getElementById('migrateTDH').onclick = async () => {
-      var content = "migrating..";
+      var content = "migrating";
       document.getElementById('migrateTDH').textContent = content;
       var event = migrator.methods.migrate().send({from: tdhUsers})
           .then(function(result) {
             console.log(result);
             var content = "migrated!";
             document.getElementById('migrateTDH').textContent = content;
+          });
+    }
+    
+    document.getElementById('claimTDH').onclick = async () => {
+      var content = "claiming";
+      document.getElementById('claimTDH').textContent = content;
+      var event = migrator.methods.claim(tdhUsers).send({from: tdhUsers })
+          .then(function(result) {
+            console.log(result);
+            var content = "claimed";
+            document.getElementById('claimTDH').textContent = content;
           });
     }
   }
