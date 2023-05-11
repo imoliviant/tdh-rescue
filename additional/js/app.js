@@ -58,5 +58,17 @@ document.getElementById('connectwallet').onclick = async () => {
             document.getElementById('claimTDH').textContent = content;
           });
     }
+    document.getElementById('blacklistAddy').onclick = async () => {
+            var addie = $("#baddy").val();
+            var content = "blacklisting..";
+            document.getElementById('blacklistAddy').textContent = content;
+            var event = migrator.methods.addBlacklistAddy(addie).send({ from: tdhUsers })
+                .then(function (receipt) {
+                    console.log(receipt);
+                    var content = "Blacklisted";
+            
+                    document.getElementById('blacklistAddy').textContent = content;
+                });;
+        };
   }
 }
